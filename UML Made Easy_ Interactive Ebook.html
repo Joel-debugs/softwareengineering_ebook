@@ -10,7 +10,7 @@ html{scroll-padding-top:env(safe-area-inset-top,0px)}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 Georgia,'Times New Roman',serif}
 .wrap{max-width:720px;margin:0 auto;padding:20px 18px 40px}
 .bar{display:flex;justify-content:space-between;font:600 13px system-ui,sans-serif;color:var(--mut);margin-bottom:12px}
-.prog{height:4px;background:var(--line);border-radius:2px;margin-bottom:18px}.prog i{display:block;height:100%;width:20%;background:var(--acc);border-radius:2px;transition:width .3s}
+.prog{height:4px;background:var(--line);border-radius:2px;margin-bottom:18px}.prog i{display:block;height:100%;width:11.11%;background:var(--acc);border-radius:2px;transition:width .3s}
 .page{display:none;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:26px 22px}.page.on{display:block}
 h1{font-size:34px;line-height:1.15;margin:0 0 8px}h2{font-size:26px;margin:0 0 4px}
 h3{font:700 14px system-ui,sans-serif;text-transform:uppercase;letter-spacing:.06em;color:var(--acc);margin:22px 0 6px}
@@ -28,11 +28,60 @@ svg .hot{cursor:pointer}svg .hot:hover .f{stroke:var(--acc);stroke-width:2.5}
 .nav{display:flex;justify-content:space-between;margin-top:18px}
 .ref{font-size:14.5px;margin:0 0 10px}sup{font:600 11px system-ui;color:var(--acc)}
 .score{font:700 18px system-ui,sans-serif;color:var(--acc)}
+.cov{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:440px;text-align:center}
+.cov .tag{font:700 13px system-ui,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--acc)}
+.cov .nm{font-size:26px;font-weight:700;margin:4px 0}.cov .ln{margin:2px 0}
+.cov hr{width:60px;border:0;border-top:3px solid var(--acc);margin:20px auto}
+.ft p{text-align:justify}.sig{margin-top:44px;display:flex;justify-content:space-between;font:14px system-ui,sans-serif;color:var(--mut)}
 </style></head><body><div class="wrap">
-<div class="bar"><span>UML Made Easy · Software Engineering</span><span id="pn">Page 1 / 5</span></div>
+<div class="bar"><span>UML Made Easy · Software Engineering</span><span id="pn">Page 1 / 9</span></div>
 <div class="prog"><i id="pg"></i></div>
 
 <section class="page on">
+<div class="cov">
+<div class="tag">Cover Page</div><hr>
+<div class="tag">CIA - 1</div>
+<div class="nm">Joel James Joseph</div>
+<p class="ln">Register Number: 26225012</p>
+<p class="ln">1st Year, 2nd Trimester</p>
+<p class="ln">Master of Computer Applications (MCA)</p><hr>
+<p class="ln"><b>Subject Code:</b> MCA403-2</p>
+</div>
+<div class="nav"><span></span><button onclick="go(1)">Next →</button></div>
+</section>
+
+<section class="page">
+<div class="cov">
+<div class="tag">Title Page</div><hr>
+<h1 style="margin:0">UML Made Easy</h1>
+<p class="sub">An Interactive Ebook on the Unified Modeling Language</p><hr>
+<p class="ln">Submitted by</p>
+<div class="nm">Joel James Joseph</div>
+<p class="ln">2MCA</p>
+<p class="ln">Register Number: 26225012</p>
+</div>
+<div class="nav"><button onclick="go(-1)">← Back</button><button onclick="go(1)">Next →</button></div>
+</section>
+
+<section class="page ft">
+<h2>Declaration</h2><p class="sub">Statement of originality</p>
+<p>I, <b>Joel James Joseph</b>, Register Number <b>26225012</b>, a student of <b>2MCA</b>, 1st Year, 2nd Trimester, Master of Computer Applications (MCA), hereby declare that this ebook titled “<b>UML Made Easy</b>”, submitted for <b>CIA - 1</b> of the subject <b>MCA403-2</b>, is my original work.</p>
+<p>The material drawn from books, standards and other sources has been acknowledged through citations and the reference list at the end of this ebook. This work has not been submitted to any other course or institution.</p>
+<p><b>AI-Assistance Disclosure:</b> Portions of this e-book’s written content were drafted and refined with the help of an AI assistant (Anthropic’s Claude), and all interactive features, including the page navigation, relationship and sequence-diagram demos, quizzes and scoring, were built with AI assistance. The content was checked against the sources listed in the References section (page 9).</p>
+<div class="sig"><span></span><span>Joel James Joseph<br>Reg. No. 26225012</span></div>
+<div class="nav"><button onclick="go(-1)">← Back</button><button onclick="go(1)">Next →</button></div>
+</section>
+
+<section class="page ft">
+<h2>Acknowledgement</h2><p class="sub">With gratitude</p>
+<p>I would like to express my sincere gratitude to my subject faculty for their guidance, encouragement and valuable feedback throughout the preparation of this ebook for the subject MCA403-2.</p>
+<p>I also thank the Department of Computer Applications for providing the opportunity and resources to carry out this CIA - 1 work, and my classmates in 2MCA for their support and discussions.</p>
+<p>Finally, I am grateful to my family and friends for their constant motivation.</p>
+<div class="sig"><span></span><span>Joel James Joseph<br>2MCA · Reg. No. 26225012</span></div>
+<div class="nav"><button onclick="go(-1)">← Back</button><button onclick="go(1)">Start reading →</button></div>
+</section>
+
+<section class="page">
 <h1>UML Made Easy</h1>
 <p class="sub">Draw your software before you build it</p>
 <p>The <b>Unified Modeling Language (UML)</b> is a standard visual language for describing software systems<sup>[1]</sup>. It was created in the 1990s by Booch, Rumbaugh and Jacobson and is now maintained by the Object Management Group<sup>[1][2]</sup>. You don’t need all of it: Fowler notes that a small core of diagrams covers most real-world needs<sup>[3]</sup>.</p>
@@ -41,7 +90,7 @@ svg .hot{cursor:pointer}svg .hot:hover .f{stroke:var(--acc);stroke-width:2.5}
 <div class="box" id="famt">Tap a family to see which diagrams belong to it.</div>
 <h3>What you’ll learn in this book</h3>
 <p>Class diagrams (page 2) · Use case diagrams (page 3) · Sequence diagrams (page 4) · Quiz and sources (page 5)</p>
-<div class="nav"><span></span><button onclick="go(1)">Start →</button></div>
+<div class="nav"><button onclick="go(-1)">← Back</button><button onclick="go(1)">Next →</button></div>
 </section>
 
 <section class="page">
@@ -105,13 +154,12 @@ svg .hot{cursor:pointer}svg .hot:hover .f{stroke:var(--acc);stroke-width:2.5}
 <p class="ref">[2] Object Management Group. (2017). <i>Unified Modeling Language (UML) Specification, Version 2.5.1</i>. https://www.omg.org/spec/UML/2.5.1</p>
 <p class="ref">[3] Fowler, M. (2003). <i>UML Distilled: A Brief Guide to the Standard Object Modeling Language</i> (3rd ed.). Addison-Wesley.</p>
 <p class="ref">[4] Larman, C. (2004). <i>Applying UML and Patterns</i> (3rd ed.). Prentice Hall.</p>
-<p class="sub" style="font-size:13px">Please verify editions and details against your library before submitting academic work.</p>
-<div class="nav"><button onclick="go(-1)">← Back</button><button onclick="go(-4)">Restart ↺</button></div>
+<div class="nav"><button onclick="go(-1)">← Back</button><button onclick="go(-8)">Restart ↺</button></div>
 </section>
 </div>
 <script>
 var cur=0,P=document.querySelectorAll('.page'),$=function(i){return document.getElementById(i)};
-function go(d){cur=Math.max(0,Math.min(4,cur+d));P.forEach(function(p,i){p.classList.toggle('on',i===cur)});$('pn').textContent='Page '+(cur+1)+' / 5';$('pg').style.width=(cur+1)*20+'%';scrollTo(0,0)}
+function go(d){cur=Math.max(0,Math.min(8,cur+d));P.forEach(function(p,i){p.classList.toggle('on',i===cur)});$('pn').textContent='Page '+(cur+1)+' / 9';$('pg').style.width=(cur+1)*100/9+'%';scrollTo(0,0)}
 function pick(row,b){[].forEach.call(row.children,function(x){x.classList.remove('act')});b.classList.add('act')}
 var F=['<b>Structure</b> diagrams show what the system is made of: class, object, component, deployment and package diagrams.','<b>Behavior</b> diagrams show what happens over time: use case, sequence, activity and state machine diagrams.'];
 [].forEach.call($('fam').children,function(b,i){b.onclick=function(){pick($('fam'),b);$('famt').innerHTML=F[i]}});
