@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>UML Made Easy: A 5-Page Interactive Ebook</title>
+<style>
+:root{--bg:#f4f8f6;--card:#fff;--ink:#1b1f1e;--mut:#66706c;--acc:#0f766e;--line:#d8e2de;--soft:#e6f2ef;--ok:#1e7a46;--bad:#b3261e;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#121715;--card:#1c2320;--ink:#e8efec;--mut:#9aa8a2;--acc:#4fd1c0;--line:#2f3b37;--soft:#25312d;--ok:#5fd18b;--bad:#ff8b84}}
+:root[data-theme="dark"]{--bg:#121715;--card:#1c2320;--ink:#e8efec;--mut:#9aa8a2;--acc:#4fd1c0;--line:#2f3b37;--soft:#25312d;--ok:#5fd18b;--bad:#ff8b84}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 Georgia,'Times New Roman',serif}
+.wrap{max-width:720px;margin:0 auto;padding:20px 18px 40px}
+.bar{display:flex;justify-content:space-between;font:600 13px system-ui,sans-serif;color:var(--mut);margin-bottom:12px}
+.prog{height:4px;background:var(--line);border-radius:2px;margin-bottom:18px}.prog i{display:block;height:100%;width:20%;background:var(--acc);border-radius:2px;transition:width .3s}
+.page{display:none;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:26px 22px}.page.on{display:block}
+h1{font-size:34px;line-height:1.15;margin:0 0 8px}h2{font-size:26px;margin:0 0 4px}
+h3{font:700 14px system-ui,sans-serif;text-transform:uppercase;letter-spacing:.06em;color:var(--acc);margin:22px 0 6px}
+.sub{color:var(--mut);font-style:italic;margin:0 0 14px}
+.row{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}
+button{font:600 14px system-ui,sans-serif;border:1px solid var(--line);background:var(--card);color:var(--ink);padding:9px 14px;border-radius:8px;cursor:pointer}
+button.act{background:var(--acc);color:var(--bg);border-color:var(--acc)}button:disabled{opacity:.4;cursor:default}
+.box{background:var(--soft);border-radius:10px;padding:12px 14px;min-height:60px;font-size:16px;margin:8px 0}
+svg{width:100%;height:auto;display:block;background:var(--soft);border-radius:10px}
+svg text{font:13px system-ui,sans-serif;fill:var(--ink)}svg .l{stroke:var(--ink);stroke-width:1.5;fill:none}svg .f{fill:var(--card);stroke:var(--ink);stroke-width:1.5}
+svg .hot{cursor:pointer}svg .hot:hover .f{stroke:var(--acc);stroke-width:2.5}
+.q{border:1px solid var(--line);border-radius:10px;padding:14px;margin-top:16px}.q p{margin:0 0 8px;font-weight:700}
+.opt{display:block;width:100%;text-align:left;margin:6px 0}.opt.right{border-color:var(--ok);color:var(--ok)}.opt.wrong{border-color:var(--bad);color:var(--bad)}
+.fb{font:14px system-ui,sans-serif;margin-top:6px;min-height:18px}
+.nav{display:flex;justify-content:space-between;margin-top:18px}
+.ref{font-size:14.5px;margin:0 0 10px}sup{font:600 11px system-ui;color:var(--acc)}
+.score{font:700 18px system-ui,sans-serif;color:var(--acc)}
+</style></head><body><div class="wrap">
+<div class="bar"><span>UML Made Easy · Software Engineering</span><span id="pn">Page 1 / 5</span></div>
+<div class="prog"><i id="pg"></i></div>
+
+<section class="page on">
+<h1>UML Made Easy</h1>
+<p class="sub">Draw your software before you build it</p>
+<p>The <b>Unified Modeling Language (UML)</b> is a standard visual language for describing software systems<sup>[1]</sup>. It was created in the 1990s by Booch, Rumbaugh and Jacobson and is now maintained by the Object Management Group<sup>[1][2]</sup>. You don’t need all of it: Fowler notes that a small core of diagrams covers most real-world needs<sup>[3]</sup>.</p>
+<h3>Two families of diagrams</h3>
+<div class="row" id="fam"><button>Structure</button><button>Behavior</button></div>
+<div class="box" id="famt">Tap a family to see which diagrams belong to it.</div>
+<h3>What you’ll learn in this book</h3>
+<p>Class diagrams (page 2) · Use case diagrams (page 3) · Sequence diagrams (page 4) · Quiz and sources (page 5)</p>
+<div class="nav"><span></span><button onclick="go(1)">Start →</button></div>
+</section>
+
+<section class="page">
+<h2>Class Diagrams</h2>
+<p class="sub">The blueprint of your code’s structure<sup>[3]</sup></p>
+<p>A class is drawn as a box with three parts: <b>name</b>, <b>attributes</b>, <b>operations</b>. Tap a line to decode it.</p>
+<svg viewBox="0 0 360 150" role="img" aria-label="Class box for Student">
+<g class="hot" onclick="cls(0)"><rect class="f" x="90" y="8" width="180" height="30"/><text x="180" y="28" text-anchor="middle" style="font-weight:700">Student</text></g>
+<g class="hot" onclick="cls(1)"><rect class="f" x="90" y="38" width="180" height="50"/><text x="100" y="58">- name : String</text><text x="100" y="78">+ gpa : float</text></g>
+<g class="hot" onclick="cls(2)"><rect class="f" x="90" y="88" width="180" height="54"/><text x="100" y="108">+ enroll(c : Course)</text><text x="100" y="128"># calcGpa() : float</text></g>
+</svg>
+<div class="box" id="clst">Tap the name, attributes or operations.</div>
+<p style="font-size:15px;color:var(--mut)">Visibility: <b>+</b> public, <b>−</b> private, <b>#</b> protected<sup>[1]</sup></p>
+<h3>Relationships: pick one</h3>
+<div class="row" id="rel"></div>
+<svg viewBox="0 0 360 80" id="relsvg" role="img" aria-label="Relationship notation"></svg>
+<div class="box" id="relt"></div>
+<div class="nav"><button onclick="go(-1)">← Back</button><button onclick="go(1)">Next →</button></div>
+</section>
+
+<section class="page">
+<h2>Use Case Diagrams</h2>
+<p class="sub">What the system does, from the user’s point of view<sup>[1]</sup></p>
+<p>Use cases capture <i>who</i> uses the system and <i>what goals</i> they achieve, without worrying about implementation<sup>[4]</sup>. Tap any element.</p>
+<svg viewBox="0 0 360 200" role="img" aria-label="Online bookstore use case diagram">
+<g class="hot" onclick="uc(0)"><circle class="f" cx="38" cy="70" r="10"/><path class="l" d="M38 80v28M18 90h40M38 108l-14 22M38 108l14 22"/><text x="38" y="148" text-anchor="middle">Customer</text></g>
+<rect class="l" x="110" y="10" width="240" height="180" rx="6" style="stroke-dasharray:5 4"/><text x="230" y="28" text-anchor="middle" style="font-weight:700">Online Bookstore</text>
+<path class="l" d="M58 92L135 60M58 98L135 110"/>
+<g class="hot" onclick="uc(1)"><ellipse class="f" cx="190" cy="58" rx="62" ry="20"/><text x="190" y="62" text-anchor="middle">Browse Books</text></g>
+<g class="hot" onclick="uc(2)"><ellipse class="f" cx="190" cy="112" rx="62" ry="20"/><text x="190" y="116" text-anchor="middle">Place Order</text></g>
+<path class="l" d="M190 132v14" style="stroke-dasharray:4 3"/><path class="l" d="M185 140l5 7 5-7"/>
+<text x="198" y="143" style="font-size:11px">«include»</text>
+<g class="hot" onclick="uc(3)"><ellipse class="f" cx="190" cy="168" rx="50" ry="18"/><text x="190" y="172" text-anchor="middle">Pay</text></g>
+<rect class="hot" x="0" y="0" width="0" height="0"/>
+</svg>
+<div class="box" id="uct">Tap the actor, a use case, or the boundary text.</div>
+<div class="q" data-a="1"><p>Q: In a use case diagram, what does the stick figure represent?</p>
+<button class="opt">A class in the code</button><button class="opt">An actor (a user or external system)</button><button class="opt">A database table</button><div class="fb"></div></div>
+<div class="nav"><button onclick="go(-1)">← Back</button><button onclick="go(1)">Next →</button></div>
+</section>
+
+<section class="page">
+<h2>Sequence Diagrams</h2>
+<p class="sub">Who talks to whom, and in what order<sup>[1][3]</sup></p>
+<p>Time flows downward. Solid arrows are calls; dashed arrows are replies. Step through a login.</p>
+<svg viewBox="0 0 360 230" id="seq" role="img" aria-label="Login sequence diagram"></svg>
+<div class="row"><button id="prev" onclick="seq(-1)">← Prev step</button><button id="next" class="act" onclick="seq(1)">Next step →</button><button onclick="seq(-9)">Reset</button></div>
+<div class="box" id="seqt"></div>
+<div class="q" data-a="0"><p>Q: In a sequence diagram, what does a dashed arrow usually show?</p>
+<button class="opt">A return/reply message</button><button class="opt">An inheritance link</button><button class="opt">A private attribute</button><div class="fb"></div></div>
+<div class="nav"><button onclick="go(-1)">← Back</button><button onclick="go(1)">Final quiz &amp; sources →</button></div>
+</section>
+
+<section class="page">
+<h2>Final Check &amp; References</h2>
+<p class="sub">Which diagram would you draw?</p>
+<div id="match"></div>
+<p class="score" id="sc"></p>
+<h3>References</h3>
+<p class="ref">[1] Booch, G., Rumbaugh, J., &amp; Jacobson, I. (2005). <i>The Unified Modeling Language User Guide</i> (2nd ed.). Addison-Wesley.</p>
+<p class="ref">[2] Object Management Group. (2017). <i>Unified Modeling Language (UML) Specification, Version 2.5.1</i>. https://www.omg.org/spec/UML/2.5.1</p>
+<p class="ref">[3] Fowler, M. (2003). <i>UML Distilled: A Brief Guide to the Standard Object Modeling Language</i> (3rd ed.). Addison-Wesley.</p>
+<p class="ref">[4] Larman, C. (2004). <i>Applying UML and Patterns</i> (3rd ed.). Prentice Hall.</p>
+<p class="sub" style="font-size:13px">Please verify editions and details against your library before submitting academic work.</p>
+<div class="nav"><button onclick="go(-1)">← Back</button><button onclick="go(-4)">Restart ↺</button></div>
+</section>
+</div>
+<script>
+var cur=0,P=document.querySelectorAll('.page'),$=function(i){return document.getElementById(i)};
+function go(d){cur=Math.max(0,Math.min(4,cur+d));P.forEach(function(p,i){p.classList.toggle('on',i===cur)});$('pn').textContent='Page '+(cur+1)+' / 5';$('pg').style.width=(cur+1)*20+'%';scrollTo(0,0)}
+function pick(row,b){[].forEach.call(row.children,function(x){x.classList.remove('act')});b.classList.add('act')}
+var F=['<b>Structure</b> diagrams show what the system is made of: class, object, component, deployment and package diagrams.','<b>Behavior</b> diagrams show what happens over time: use case, sequence, activity and state machine diagrams.'];
+[].forEach.call($('fam').children,function(b,i){b.onclick=function(){pick($('fam'),b);$('famt').innerHTML=F[i]}});
+var C=['<b>Name compartment.</b> The class is called Student. Abstract classes are shown in italics.','<b>Attributes.</b> Format: visibility name : type. Here name is private and gpa is public.','<b>Operations.</b> Format: visibility name(params) : return type. enroll is public; calcGpa is protected.'];
+function cls(i){$('clst').innerHTML=C[i]}
+var R=[['Association','A plain line: two classes know each other. Example: a Student takes a Course.','<line class="l" x1="100" y1="40" x2="260" y2="40"/>','Student','Course'],
+['Inheritance','Hollow triangle points to the parent: “is-a”. A Student is a Person.','<line class="l" x1="100" y1="40" x2="240" y2="40"/><polygon class="f" points="260,40 240,30 240,50"/>','Student','Person'],
+['Aggregation','Hollow diamond on the whole: “has-a”, parts can live alone. A Department has Professors.','<line class="l" x1="130" y1="40" x2="260" y2="40"/><polygon class="f" points="100,40 115,32 130,40 115,48"/>','Department','Professor'],
+['Composition','Filled diamond: strong ownership, parts die with the whole. A House owns its Rooms.','<line class="l" x1="130" y1="40" x2="260" y2="40"/><polygon points="100,40 115,32 130,40 115,48" style="fill:var(--ink)"/>','House','Room'],
+['Dependency','Dashed arrow: one class temporarily uses another. Order uses Payment to checkout.','<line class="l" x1="100" y1="40" x2="258" y2="40" style="stroke-dasharray:5 4"/><path class="l" d="M247 33L260 40L247 47"/>','Order','Payment']];
+R.forEach(function(r,i){var b=document.createElement('button');b.textContent=r[0];b.onclick=function(){pick($('rel'),b);$('relsvg').innerHTML='<rect class="f" x="10" y="20" width="90" height="40"/><text x="55" y="45" text-anchor="middle">'+r[3]+'</text><rect class="f" x="260" y="20" width="90" height="40"/><text x="305" y="45" text-anchor="middle">'+r[4]+'</text>'+r[2];$('relt').innerHTML='<b>'+r[0]+'.</b> '+r[1]};$('rel').appendChild(b);if(!i)b.click()});
+var U=['<b>Actor.</b> A role outside the system (a person or another system) that interacts with it.','<b>Use case.</b> One goal the actor can achieve. Browse Books is a goal the Customer starts directly.','<b>Use case.</b> Place Order is a goal. The dashed arrow with «include» says it always reuses Pay.','<b>Included use case.</b> Pay is shared behavior. «include» means the base case cannot finish without it.'];
+function uc(i){$('uct').innerHTML=U[i]}
+var X=[70,200,330],N=['User','App','Database'],M=[[0,1,'login()',0,'The User sends a login() request to the App.'],[1,2,'findUser()',0,'The App asks the Database to look up the user.'],[2,1,'userRecord',1,'The Database replies (dashed) with the record.'],[1,0,'welcome',1,'The App replies (dashed) and shows the welcome page.']],st=0;
+function seq(d){st=d<-5?0:Math.max(0,Math.min(4,st+d));var s='<defs><marker id="ah" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8" style="fill:none;stroke:var(--ink);stroke-width:1.5"/></marker></defs>';
+X.forEach(function(x,i){s+='<rect class="f" x="'+(x-40)+'" y="8" width="80" height="26"/><text x="'+x+'" y="26" text-anchor="middle">'+N[i]+'</text><line class="l" x1="'+x+'" y1="34" x2="'+x+'" y2="220" style="stroke-dasharray:3 4"/>'});
+M.slice(0,st).forEach(function(m,i){var y=70+i*40,a=X[m[0]],b=X[m[1]],e=b>a?b-2:b+2;s+='<line class="l" x1="'+a+'" y1="'+y+'" x2="'+e+'" y2="'+y+'" marker-end="url(#ah)"'+(m[3]?' style="stroke-dasharray:5 4"':'')+'/><text x="'+((a+b)/2)+'" y="'+(y-6)+'" text-anchor="middle">'+m[2]+'</text>'});
+$('seq').innerHTML=s;$('seqt').innerHTML=st?'<b>Step '+st+'.</b> '+M[st-1][4]:'Press “Next step” to begin.';$('prev').disabled=!st;$('next').disabled=st===4}
+seq(-9);
+document.querySelectorAll('.q[data-a]').forEach(function(q){var a=+q.dataset.a,o=q.querySelectorAll('.opt'),fb=q.querySelector('.fb');o.forEach(function(b,i){b.onclick=function(){o.forEach(function(x){x.classList.remove('right','wrong')});if(i===a){b.classList.add('right');fb.textContent='Correct!';fb.style.color='var(--ok)'}else{b.classList.add('wrong');fb.textContent='Not quite. Try again.';fb.style.color='var(--bad)'}}})});
+var Q=[['Show the classes in a program and how they relate','Class'],['Show how a login request flows between objects over time','Sequence'],['Show what goals a customer can achieve with the system','Use case']],ans={};
+function score(){var c=0,n=0;for(var k in ans){n++;if(ans[k]===Q[k][1])c++}$('sc').textContent=n===3?'Score: '+c+' / 3':''}
+Q.forEach(function(r,i){var d=document.createElement('div');d.className='q';d.innerHTML='<p>'+r[0]+'</p>';var row=document.createElement('div');row.className='row';['Class','Sequence','Use case'].forEach(function(l){var b=document.createElement('button');b.textContent=l;b.onclick=function(){ans[i]=l;pick(row,b);score()};row.appendChild(b)});d.appendChild(row);$('match').appendChild(d)});
+</script></body></html>
